@@ -1,0 +1,16 @@
+dict-app-staging:
+  ruby_version: 1.9.3 # 1.9.3, 1.9.2 or ree-1.8.7
+  environment: production # RAILS_ENV
+  monitoring_email: rafal.osko@gmail.com
+  domains:
+    - dict-app-staging.shellyapp.com
+  servers:
+    app1:
+      size: large
+      thin: 4
+      # whenever: on
+      # delayed_job: 1
+      databases:
+        # - postgresql
+        # - mongodb
+        # - redis
