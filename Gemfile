@@ -21,15 +21,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+	gem 'shelly'
+	gem 'thin'
+end
+
 gem 'jquery-rails'
 
 # javascript runtime environment
 gem 'execjs'
 gem 'therubyracer'
-
-# shelly cloud
-gem 'shelly', :group => :development
-gem 'thin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
