@@ -1,5 +1,6 @@
+%h1 Dict
 #search_area
-	%input{:type => "text", :id => "query_field", :class => "search"}
+	%input{:type => "text", :id => "query_field", :class => "search", :value => "Enter your query..."}
 	#search-button= link_to_function "Search", "run_search()", :class => "button"
 
 #results_area
