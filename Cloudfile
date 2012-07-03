@@ -11,6 +11,6 @@ dict-app-staging:
       # whenever: on
       # delayed_job: 1
       databases:
-        # - postgresql
+        - postgresql
         # - mongodb
         # - redis
