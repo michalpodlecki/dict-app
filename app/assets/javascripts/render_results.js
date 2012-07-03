@@ -7,4 +7,5 @@ render_results = function(data)
 {
 	var resultsSoFar = $("#results_area").html();
 	$("#results_area").html(construct_result(data) + resultsSoFar);
+	$(".result:first").effect("highlight", {}, 1000);
 }
