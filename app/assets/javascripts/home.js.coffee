@@ -5,3 +5,6 @@
 $(document).ready ->
   field = $('#query_field')
   field.focusin -> field.val ''
+  field.keypress (e) ->
+    if e.which == 13
+      run_search()

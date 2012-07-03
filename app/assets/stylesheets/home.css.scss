@@ -22,3 +22,20 @@
 #results_area {
   padding: 8px 8px 8px;
 }
+
+.result {
+  background-color: white;
+
+  border: {
+    color: #C5D5DD;
+    style: solid;
+    width: 1px;
+    radius: 4px;
+  }
+  
+  color: #333;
+  display: block;
+  margin: 0;
+  margin-top: 10px;
+  padding: 10px;
+}
