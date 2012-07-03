@@ -26,6 +26,11 @@ group :production do
 	gem 'thin'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
+
 gem 'jquery-rails'
 
 # javascript runtime environment
