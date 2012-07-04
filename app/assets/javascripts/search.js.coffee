@@ -8,3 +8,7 @@ $(document).ready ->
   field.keypress (e) ->
     if e.which == 13
       run_search()
+
+run_search = () ->
+  query = $('#query_field').val()
+  window.location.href = "/" + query
