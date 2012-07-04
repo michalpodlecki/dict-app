@@ -1,5 +1,4 @@
 DictApp::Application.routes.draw do
-  get "search/index"
   match ':query' => 'search#index'
 
   # The priority is based upon order of creation:
