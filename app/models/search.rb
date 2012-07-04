@@ -1,9 +1,12 @@
+require 'wiktionary'
+
 class Search
   def initialize(query)
-    @query = query
+    @response = Hash.new
+    @response["wiktionary"] = Wiktionary.new(query).translate
   end
 
   def get_results
-    ['Response: ' + @query]
+    @response
   end
 end
