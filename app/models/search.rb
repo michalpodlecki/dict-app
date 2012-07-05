@@ -10,8 +10,7 @@ class Search
     when "wiktionary"
       Wiktionary.new(query).translate
     when "fake"
-      sleep 5
-      "fake response after 5 seconds"
+      ["fake immediate response"]
     end
   end
 

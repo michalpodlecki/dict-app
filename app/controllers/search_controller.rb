@@ -17,7 +17,11 @@ class SearchController < ApplicationController
 
   def single_service
     results = Search.new.get_single_service(params[:service], params[:query])
-    render :partial => "search/services/" + params[:service], :locals => {:result => results}
+
+    respond_to do |format|
+      format.html { render :partial => "search/services/" + params[:service], :locals => {:result => results} }
+      format.json  { render :json => results }
+    end
   end
 
   def services
