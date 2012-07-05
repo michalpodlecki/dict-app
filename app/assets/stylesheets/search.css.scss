@@ -32,20 +32,33 @@
     width: 1px;
     radius: 4px;
   }
-  
+
   color: #333;
   display: block;
   margin: 0;
   margin-top: 10px;
   padding-top: 10px;
   padding-left: 17px;
-  padding-bottom: 5px;
+  padding-right: 17px;
+  padding-bottom: 7px;
 
   h2 {
+    color: #667;
     margin-top: 7px;
+    margin-bottom: 3px;
   }
 
   h3 {
+    color: #888;
     margin-left: 5px;
+    margin-bottom: 3px;
+  }
+
+  ol {
+    margin-top: 3px;
+  }
+
+  .result-header {
+    border-bottom: 1px solid #ccc;
   }
 }

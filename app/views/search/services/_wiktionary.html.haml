@@ -1,12 +1,13 @@
-%h2 Wiktionary
-#wiktionary_translations
-  %h3 Translations
-  %ul
-    - result[0].each do |translation|
-      %li= translation
-#wiktionary_sentences
-  %h3 Sentences
-  %ul
-    - result[1].each do |sentence|
-      %li= sentence
-
+.result-header
+  %h2 Wiktionary
+.result-content
+  #wiktionary_translations
+    %h3 Translations
+    %ol
+      - result[0].each do |translation|
+        %li= translation
+  #wiktionary_sentences
+    %h3 Sentences
+    %ol
+      - result[1].each do |sentence|
+        %li= sentence
