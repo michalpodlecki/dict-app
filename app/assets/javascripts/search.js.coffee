@@ -28,11 +28,21 @@ setup_button = () ->
   $('#search_button').click ->
     run_search()
 
+request_count = 0
+
 send_request = (service, query) ->
+  $('#progress_display').removeClass('hidden')
+  request_count++
   ajax_request =
     url: service + '/' + query
     success: render_results
+    complete: end_request
   $.ajax(ajax_request)
+
+end_request = () ->
+  request_count--
+  if request_count == 0
+    $('#progress_display').addClass('hidden')
 
 run_search = () ->
   $('#results_area').html ''

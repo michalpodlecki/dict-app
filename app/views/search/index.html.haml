@@ -5,6 +5,9 @@
   %input{:type => "text", :id => "query_field", :class => "search", :value => "Enter your query..."}
   %a{:href => '#', :class => 'button', :id => 'search_button'} Search
 
+#progress_display{:class => 'hidden'} Please wait
+
 #results_area
   - @results.each do |service, result|
     .result= render :partial => "search/services/" + service, :locals => {:result => result}
+
