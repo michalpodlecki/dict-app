@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Ragnarson/dict-gem.git
-  revision: 428f1987b0886caa70c9f5f8303db3e08c0589cc
+  revision: 29833533df2e8b275fd30e14be1a633e5ccdb952
   specs:
     dict (0.0.6)
       nokogiri

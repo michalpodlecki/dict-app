@@ -1,0 +1,12 @@
+%h2 Wiktionary
+#wiktionary_translations
+  %h3 Translations
+  %ul
+    - result[0].each do |translation|
+      %li= translation
+#wiktionary_sentences
+  %h3 Sentences
+  %ul
+    - result[1].each do |sentence|
+      %li= sentence
+

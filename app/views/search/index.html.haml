@@ -4,5 +4,5 @@
   %a{:href => '#', :class => 'button', :id => 'search_button'} Search
 
 #results_area
-  - @results.each do |result|
-    .result= result
+  - @results.each do |service, result|
+    .result= render :partial => "search/services/" + service, :locals => {:result => result}
