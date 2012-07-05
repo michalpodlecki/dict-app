@@ -16,7 +16,9 @@ render_results = (data) ->
 
 setup_input_field = () ->
   field = $('#query_field')
-  field.focusin -> field.val ''
+  field.focusin ->
+    if field.val() == 'Enter your query...'
+      field.val ''
   field.focusout ->
     if field.val() == ''
       field.val 'Enter your query...'
