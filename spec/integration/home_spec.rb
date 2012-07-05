@@ -2,14 +2,15 @@ require 'spec_helper'
 
 describe "home page", :js => true do
 
-  it "should have a header" do
+  it "should has any content" do
     visit '/'
-    page.should have_content('Dict')
+
+    page.has_xpath?("//*").should eq true
   end
 
   it "shows some results after submiting a query" do
     visit '/some_query'
-    
+
     page.has_xpath?("//div[@id='results_area']/*").should eq true
   end
 

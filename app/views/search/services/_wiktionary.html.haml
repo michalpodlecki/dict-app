@@ -3,9 +3,7 @@
 .result-content
   #wiktionary_translations
     %h3 Translations
-    %ol
-      - result[0].each do |translation|
-        %li= translation
+    %p= result[0].join(", ")
   #wiktionary_sentences
     %h3 Sentences
     %ol

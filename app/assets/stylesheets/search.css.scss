@@ -2,16 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#content {
-  width: 960px;
-  margin: auto;
-}
-
 #search_area {
-  padding: 8px 8px 8px;
+  padding: 8px 8px 8px 8px;
   background: #E6F1F6;
   border: 1px solid #C5D5DD;
   border-radius: 4px;
+}
+
+#query_field {
+  background-color: white;
+  border: 1px solid #DDD;
+  border-top: 1px solid #CDCDCD;
+  box-shadow: 0 1px 0 #f1f1f1,inset 0 1px 1px #e0e0e0;
+  padding: 5px 5px 5px 5px;
+  color: #666;
+  font-size: 12px;
+  width: 860px;
 }
 
 #search-button {
@@ -19,15 +25,10 @@
   margin-top: 2px;
 }
 
-#results_area {
-  padding: 8px 8px 8px;
-}
-
 #progress_display {
   color: #aaa;
   font-size: 14px;
-  font-weight: bold;
-  margin-top: 10px;
+  margin-top: 18px;
   text-align: center;
 }
 
@@ -38,25 +39,33 @@
     color: #C5D5DD;
     style: solid;
     width: 1px;
-    radius: 4px;
   }
 
   color: #333;
   display: block;
   margin: 0;
   margin-top: 10px;
-  padding-top: 10px;
-  padding-left: 17px;
-  padding-right: 17px;
-  padding-bottom: 17px;
+  padding-top: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 14px;
+
+  p {
+    margin-top: 0.5em;
+    padding-left: 18px;
+  }
 
   h2 {
+    font-size: 18px;
+    font-weight: normal;
     color: #667;
     margin-top: 7px;
     margin-bottom: 3px;
   }
 
   h3 {
+    font-size: 14px;
+    font-weight: normal;
     color: #888;
     margin-top: 6px;
     margin-left: 5px;
@@ -64,7 +73,7 @@
   }
 
   ol {
-    margin-top: 5px;
+    margin-top: 0.5em;
     margin-bottom: 0px;
   }
 

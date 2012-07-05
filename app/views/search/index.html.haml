@@ -1,11 +1,11 @@
 #services{:class => 'hidden'}= @services.to_json
 
-%h1 Dict
+= image_tag("dict-logo.png", {:alt => "dict:"})
 #search_area
   %input{:type => "text", :id => "query_field", :class => "search", :value => "Enter your query..."}
   %a{:href => '#', :class => 'button', :id => 'search_button'} Search
 
-#progress_display{:class => 'hidden'} Please wait, loading...
+#progress_display{:class => 'hidden'} loading more results...
 
 #results_area
   - @results.each do |service, result|
