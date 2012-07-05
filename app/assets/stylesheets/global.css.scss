@@ -24,6 +24,13 @@ h1 {
   user-select: none;
 }
 
+@mixin linear-gradient($first-color, $second-color) {
+  background: $first-color;
+  background: -moz-linear-gradient($first-color,$second-color);
+  background: -webkit-linear-gradient($first-color,$second-color);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='$first-color',endColorstr='$second-color')";
+}
+
 .button {
   position: relative;
   display: inline-block;
@@ -43,12 +50,16 @@ h1 {
   border-bottom-color: #BCBCBC;
   border-radius: 3px;
 
-  background: #FAFAFA;
-  background: -moz-linear-gradient(#FAFAFA,#EAEAEA);
-  background: -webkit-linear-gradient(#FAFAFA,#EAEAEA);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
-
+  @include linear-gradient(#fafafa, #eaeaea);
   @include fake-button;
+}
+
+.button-down {
+  @extend .button;
+  @include linear-gradient(#8b8bfa, #5b5bea);
+  color: #eee;
+  text-shadow: 0 -1px 0 #666;
+  border: 1px solid #949494;
 }
 
 .search {
