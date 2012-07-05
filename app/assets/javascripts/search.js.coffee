@@ -35,6 +35,7 @@ send_request = (service, query) ->
   $.ajax(ajax_request)
 
 run_search = () ->
+  $('#results_area').html ''
   query = $('#query_field').val()
   services = jQuery.parseJSON($('#services').text())
   send_request(service, query) for service in services
