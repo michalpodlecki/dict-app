@@ -34,7 +34,7 @@ send_request = (service, query) ->
   $('#progress_display').removeClass('hidden')
   request_count++
   ajax_request =
-    url: service + '/' + query
+    url: 'single/' + service + '/' + query
     success: render_results
     complete: end_request
   $.ajax(ajax_request)
