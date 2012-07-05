@@ -1,5 +1,6 @@
 DictApp::Application.routes.draw do
   match ':query' => 'search#index', :constraints => { :query => /[^\/]+/ }
+  match ':service/:query' => 'search#single_service', :constraints => { :query => /[^\/]+/ }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
