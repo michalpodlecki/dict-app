@@ -9,16 +9,23 @@ class Search
     case service
     when "wiktionary"
       Wiktionary.new(query).translate
+    when "fake"
+      sleep 5
+      "fake response after 5 seconds"
     end
   end
 
   def get_all_results(query)
     @response = Hash.new
-    @response["wiktionary"] = get_single_service("wiktionary", query)
+
+    available_services().each do |service|
+      @response[service] = get_single_service(service, query)
+    end
+
     @response
   end
 
   def available_services
-    ["wiktionary"]
+    ["wiktionary", "fake"]
   end
 end
