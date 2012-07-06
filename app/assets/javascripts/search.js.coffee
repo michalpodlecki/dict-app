@@ -8,12 +8,19 @@ $(document).ready ->
   $('#progress_display').ajaxStop ->
     $(this).addClass 'hidden'
   bind_back_button()
+  copy_query_to_field()
+  execute_search()
+
+copy_query_to_field = () ->
+  query = location.pathname.split("/").pop()
+  $('#query_field').val decodeURIComponent(query)
 
 bind_back_button = () ->
   $(window).bind 'popstate', ->
-    query = location.pathname.split("/").pop()
-    $('#query_field').val decodeURIComponent(query)
-    execute_search()
+    field_value = $('#query_field').val()
+    copy_query_to_field()
+    if field_value != $('#query_field').val()
+      execute_search()
 
 construct_result = (data) ->
   return '<div class=\'result\'>' + data + '</div>';

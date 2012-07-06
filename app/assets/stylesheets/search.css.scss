@@ -9,6 +9,10 @@
   border-radius: 4px;
 }
 
+#dict-logo {
+  margin-bottom: 2px;
+}
+
 #query_field {
   background-color: white;
   border: 1px solid #DDD;
@@ -27,7 +31,6 @@
 
 #progress_display {
   color: #aaa;
-  font-size: 14px;
   margin-top: 18px;
   text-align: center;
 }
@@ -45,10 +48,13 @@
   display: block;
   margin: 0;
   margin-top: 10px;
-  padding-top: 6px;
-  padding-left: 14px;
-  padding-right: 14px;
-  padding-bottom: 14px;
+
+  padding: {
+    top: 6px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
 
   p {
     margin-top: 0.5em;
@@ -67,9 +73,11 @@
     font-size: 14px;
     font-weight: normal;
     color: #888;
-    margin-top: 6px;
-    margin-left: 5px;
-    margin-bottom: 3px;
+    margin: {
+      top: 6px;
+      left: 5px;
+      bottom: 3px;
+    }
   }
 
   ol {
