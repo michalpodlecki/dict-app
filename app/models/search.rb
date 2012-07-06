@@ -1,4 +1,5 @@
 require 'wiktionary'
+require 'exceptions'
 
 class Search
   def initialize
@@ -6,11 +7,17 @@ class Search
   end
 
   def get_single_service(service, query)
+
+    begin
+
     case service
     when "wiktionary"
       Wiktionary.new(query).translate
     when "fake"
       ["fake immediate response"]
+    end
+    rescue
+      raise Exceptions::RubyGemError
     end
   end
 
