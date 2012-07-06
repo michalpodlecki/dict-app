@@ -1,23 +1,24 @@
 class SearchController < ApplicationController
   def index
-    render_for_services(Search.new.available_services, params[:query])
-  end
-
-  def single_service
-    render_for_services([params[:service]], params[:query])
-  end
-
-  def render_for_services(services, query)
     @results = {}
-    search_model = Search.new
+    @services = Search.new.available_services
+  end
 
-    @services = services
+  def search
+    if params[:service]
+      @services = [params[:service]]
+    else
+      @services = Search.new.available_services
+    end
+
+    @results = {}
+    search = Search.new
 
     respond_to do |format|
       format.html { render :action => "index" }
       format.json  do
         begin
-        @results = search_model.get_results_for(services, query)
+        @results = search.get_results_for(@services, params[:query])
         render :json => @results
         rescue Exceptions::RubyGemError => e
           render :json => ["Ruby Gem Exception"]
@@ -25,7 +26,7 @@ class SearchController < ApplicationController
       end
       format.js do
         begin
-        @results = search_model.get_results_for(services, query)
+        @results = search.get_results_for(@services, params[:query])
         render :action => "index"
         rescue Exceptions::RubyGemError => e
           render :template => 'errors/rubyGemError'
@@ -35,9 +36,9 @@ class SearchController < ApplicationController
   end
 
   def services
-    @services = Search.new.available_services
+    services = Search.new.available_services
     respond_to do |format|
-      format.json  { render :json => @services }
+      format.json  { render :json => services }
     end
   end
 end

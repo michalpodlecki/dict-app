@@ -7,9 +7,6 @@ class Search
   end
 
   def get_single_service(service, query)
-
-    begin
-
     case service
     when "wiktionary"
       Wiktionary.new(query).translate
@@ -18,20 +15,17 @@ class Search
     end
     rescue
       raise Exceptions::RubyGemError
-    end
   end
 
   def get_results_for(services, query)
-    @response = Hash.new
-
-    services.each do |service|
-      @response[service] = get_single_service(service, query)
+    {}.tap do |results|
+      services.each do |service|
+        results[service] = get_single_service(service, query)
+      end
     end
-
-    @response
   end
 
   def available_services
-    ["wiktionary", "fake"]
+    %w(wiktionary fake)
   end
 end

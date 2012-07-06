@@ -34,11 +34,11 @@ window.render_results = render_results
 setup_input_field = () ->
   field = $('#query_field')
   field.focusin ->
-    if field.val() == 'Enter your query...'
+    if field.val() == 'Search...'
       field.val ''
   field.focusout ->
     if field.val() == ''
-      field.val 'Enter your query...'
+      field.val 'Search...'
   field.keypress (e) ->
     if e.which == 13
       run_search()
