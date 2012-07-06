@@ -1,26 +1,28 @@
 class SearchController < ApplicationController
   def index
-    @results = []
-
-    search_model = Search.new
-    @services = search_model.available_services
-
-    if params[:query]
-      @results = search_model.get_all_results(params[:query])
-    end
-
-    respond_to do |format|
-      format.html
-      format.json  { render :json => @results }
-    end
+    render_for_services(Search.new.available_services, params[:query])
   end
 
   def single_service
-    results = Search.new.get_single_service(params[:service], params[:query])
+    render_for_services([params[:service]], params[:query])
+  end
+
+  def render_for_services(services, query)
+    @results = {}
+    search_model = Search.new
+
+    @services = services
 
     respond_to do |format|
-      format.html { render :partial => "search/services/" + params[:service], :locals => {:result => results} }
-      format.json  { render :json => results }
+      format.html { render :action => "index" }
+      format.json  do
+        @results = search_model.get_results_for(services, query)
+        render :json => @results
+      end
+      format.js do
+        @results = search_model.get_results_for(services, query)
+        render :action => "index"
+      end
     end
   end
 

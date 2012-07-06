@@ -1,0 +1,3 @@
+<% @services.each do |service| %>
+window.render_results("<%= escape_javascript( render(:partial => 'search/services/' + service, :locals => {:result => @results[service]})) %>");
+<% end %>

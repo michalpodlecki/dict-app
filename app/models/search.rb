@@ -14,10 +14,10 @@ class Search
     end
   end
 
-  def get_all_results(query)
+  def get_results_for(services, query)
     @response = Hash.new
 
-    available_services().each do |service|
+    services.each do |service|
       @response[service] = get_single_service(service, query)
     end
 
