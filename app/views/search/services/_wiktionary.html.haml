@@ -3,9 +3,13 @@
 .result-content
   #wiktionary_translations
     %h3 Translations
-    %p= result[0].join(", ")
-  #wiktionary_sentences
-    %h3 Sentences
-    %ol
-      - result[1].each do |sentence|
-        %li= sentence
+    - if result.translations.empty?
+      #p No translations found.
+    - else
+      %p= result.translations[query].join(", ")
+  #wiktionary_examples
+    %h3 Usage examples
+    - if !result.examples.empty?
+      %ol
+        - result.examples[query].each do |example|
+          %li= example

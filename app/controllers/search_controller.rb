@@ -12,13 +12,14 @@ class SearchController < ApplicationController
     end
 
     @results = {}
+    @query = params[:query]
     search = Search.new
 
     respond_to do |format|
       format.html { render :action => "index" }
       format.json  do
         begin
-        @results = search.get_results_for(@services, params[:query])
+        @results = search.get_results_for(@services, @query)
         render :json => @results
         rescue Exceptions::RubyGemError => e
           render :json => ["Ruby Gem Exception"]
@@ -26,7 +27,7 @@ class SearchController < ApplicationController
       end
       format.js do
         begin
-        @results = search.get_results_for(@services, params[:query])
+        @results = search.get_results_for(@services, @query)
         render :action => "index"
         rescue Exceptions::RubyGemError => e
           render :template => 'errors/rubyGemError'

@@ -1,20 +1,12 @@
-require 'wiktionary'
 require 'exceptions'
+require 'dict'
 
 class Search
   def initialize
-
   end
 
   def get_single_service(service, query)
-    case service
-    when "wiktionary"
-      Wiktionary.new(query).translate
-    when "fake"
-      ["fake immediate response"]
-    end
-    rescue
-      raise Exceptions::RubyGemError
+    Dict.get_single_dictionary_translations(query, service)
   end
 
   def get_results_for(services, query)
@@ -26,6 +18,6 @@ class Search
   end
 
   def available_services
-    %w(wiktionary fake)
+    Dict.available_services
   end
 end
