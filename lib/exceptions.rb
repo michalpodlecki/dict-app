@@ -1,3 +1,3 @@
 module Exceptions
-  class RubyGemError < Exception; end
+  class Load < Exception; end
 end

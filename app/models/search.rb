@@ -14,7 +14,7 @@ class Search
       ["fake immediate response"]
     end
     rescue
-      raise Exceptions::RubyGemError
+      raise LoadError
   end
 
   def get_results_for(services, query)
@@ -27,5 +27,12 @@ class Search
 
   def available_services
     %w(wiktionary fake)
+  end
+
+  class LoadError < Exception
+    attr_reader :original
+    def initialize(original = $!)
+      @original = original
+    end
   end
 end

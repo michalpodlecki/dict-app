@@ -18,18 +18,19 @@ class SearchController < ApplicationController
       format.html { render :action => "index" }
       format.json  do
         begin
-        @results = search.get_results_for(@services, params[:query])
-        render :json => @results
-        rescue Exceptions::RubyGemError => e
-          render :json => ["Ruby Gem Exception"]
+          @results = search.get_results_for(@services, params[:query])
+          render :json => @results
+        rescue Search::LoadError => e
+          @exception_info = e.original.message
+          render :template => 'errors/loadError'
         end
       end
       format.js do
         begin
-        @results = search.get_results_for(@services, params[:query])
-        render :action => "index"
-        rescue Exceptions::RubyGemError => e
-          render :template => 'errors/rubyGemError'
+          @results = search.get_results_for(@services, params[:query])
+          render :action => "index"
+        rescue Search::LoadError => e
+          @exception_info = e.original.message
         end
       end
     end
