@@ -2,11 +2,18 @@ require 'spec_helper'
 
 describe "ui", :js => true do
 
-  # it "highlights incoming results" do
-  #   visit '/'
+  # useful, when applying jQuery effects on rendered results
+  it "doesn't override previous results' HTML when rendering new ones" do
+    visit '/'
 
-  #   page.execute_script("window.render_results(\"test\");");
-  # end
+    page.execute_script("window.render_results(\"test1\");");
+    old_hash = page.find(:xpath, "//div[@id='results_area']/div[1]").native.hash
+
+    page.execute_script("window.render_results(\"test2\");");
+    new_hash = page.find(:xpath, "//div[@id='results_area']/div[2]").native.hash
+
+    new_hash.should eq old_hash
+  end
 
   it "clears the previous results when new search is issued" do
     visit '/'
