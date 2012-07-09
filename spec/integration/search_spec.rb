@@ -25,4 +25,8 @@ describe "search page", :js => true do
     (old_url == new_url).should eq true
   end
 
+    it "any search is in progress" do
+    visit '/smok'
+    page.find_by_id("progress_display").has_css?(".hidden").should eq false
+  end
 end
