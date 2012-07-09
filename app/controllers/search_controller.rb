@@ -12,6 +12,7 @@ class SearchController < ApplicationController
     end
 
     @results = {}
+    @query = params[:query]
     search = Search.new
 
     respond_to do |format|

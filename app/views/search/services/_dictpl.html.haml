@@ -1,0 +1,19 @@
+.result-header
+  %h2 dictpl
+.result-content
+  #dictpl_translations
+    %h3 Translations
+    - if result.translations.empty?
+      %p No translations found
+    - else
+      %p= result.translations[query].join(", ")
+  #dictpl_other_translations
+    %h3 Useful translations
+    - result.translations.each_pair do |word, translation|
+      %p #{word}: <i>#{translation.join(', ')}</i>
+  #dictpl_examples
+    - if !result.examples.empty?
+      %h3 Usage examples
+      %ol
+        - result.examples[query].each do |example|
+          %li= example

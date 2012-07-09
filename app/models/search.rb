@@ -1,19 +1,13 @@
-require 'wiktionary'
 require 'exceptions'
+require 'dict'
 
 class Search
   def initialize
-
   end
 
   def get_single_service(service, query)
-    case service
-    when "wiktionary"
-      Wiktionary.new(query).translate
-    when "fake"
-      ["fake immediate response"]
-    end
-    rescue
+    Dict.get_single_dictionary_translations(query, service)
+	rescue
       raise LoadError
   end
 
@@ -26,7 +20,7 @@ class Search
   end
 
   def available_services
-    %w(wiktionary fake)
+    Dict.available_services
   end
 
   class LoadError < Exception
