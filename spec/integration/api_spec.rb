@@ -31,5 +31,14 @@ describe "api" do
 
     results = JSON.parse(response.body)
     results["fake"].should eq "results for fake/smok"
+    results.length.should eq 1
+  end
+
+  it "returns results from all necessary dictionaries" do
+    Search.any_instance.stub(:get_single_service).and_return("any results");
+    get "/smok", :format => :json
+
+    results = JSON.parse(response.body)
+    results.length.should eq Dict.available_services.length
   end
 end
