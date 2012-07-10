@@ -7,7 +7,7 @@ class Search
 
   def get_single_service(service, query)
     Dict.get_single_dictionary_translations(query, service)
-	rescue
+	rescue Exception
       raise LoadError
   end
 
