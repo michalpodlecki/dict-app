@@ -25,8 +25,13 @@ describe "search page", :js => true do
     (old_url == new_url).should eq true
   end
 
-    it "any search is in progress" do
+  it "any search is in progress" do
     visit '/smok'
     page.find_by_id("progress_display").has_css?(".hidden").should eq false
+  end
+  
+  it "search field should be focused" do
+    visit "/"
+    page.evaluate_script("document.activeElement.getAttribute('id')").should eq("query_field")
   end
 end
