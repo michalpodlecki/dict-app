@@ -1,4 +1,4 @@
-# Dict
+# dict [![Build Status](https://secure.travis-ci.org/Ragnarson/dict-app.png?branch=master)](http://travis-ci.org/Ragnarson/dict-app)
 Web frontend and API for dict.
 
 ## API
