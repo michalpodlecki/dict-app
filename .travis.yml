@@ -1,3 +1,13 @@
 language: ruby
 rvm:
   - 1.9.3
+notifications:
+  email:
+    - gozdek.aleksander@gmail.com
+    - grk@ragnarson.com
+    - jan.borwin@gmail.com
+    - kosmadunikowski@gmail.com
+    - mtczerwinski@gmail.com
+    - michalk@ragnarson.com
+    - m.podlecki@op.pl
+    - rafal.osko@gmail.com
