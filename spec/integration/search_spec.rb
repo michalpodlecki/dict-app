@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "search page", :js => true do
 
+  before(:each) do
+    Dict.stub(:get_single_dictionary_translations).and_return({});
+  end
+
   it "should have any content" do
     visit '/'
 

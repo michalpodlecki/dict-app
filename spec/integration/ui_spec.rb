@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "ui", :js => true do
 
+  before(:each) do
+    Dict.stub(:get_single_dictionary_translations).and_return({});
+  end
+
   # useful, when applying jQuery effects on rendered results
   it "doesn't override previous results' HTML when rendering new ones" do
     visit '/'

@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "api" do
 
+  before(:each) do
+    Dict.stub(:get_single_dictionary_translations).and_return({});
+  end
+
   it "returns JSON for all results query, when expected" do
     get "/some_query", :format => :json
     response.should be_success
