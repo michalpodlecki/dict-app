@@ -32,6 +32,7 @@ window.render_results = render_results
 
 setup_input_field = () ->
   field = $('#query_field')
+  field.focus()
   field.focusin ->
     if field.val() == 'Search...'
       field.val ''
