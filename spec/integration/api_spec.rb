@@ -3,21 +3,28 @@ require 'spec_helper'
 describe "api" do
 
   before(:each) do
-    Dict.stub(:get_single_dictionary_translations).and_return({});
+    Dict.stub(:get_single_dictionary_translations).and_return({})
   end
 
-  it "returns JSON for all results query, when expected" do
+  it "returns JSON results for all results query" do
+    Dict.stub(:available_services).and_return(%w{fake1 fake2})
+    Dict.stub(:get_single_dictionary_translations).and_return("test response")
+
     get "/some_query", :format => :json
     response.should be_success
+    expected_response = {"fake1" => "test response", "fake2" => "test response"}
 
-    lambda {JSON.parse(response.body)}.should_not raise_error
+    JSON.parse(response.body).should eq expected_response
   end
 
-  it "returns JSON for single result query, when expected" do
+  it "returns JSON results for single result query" do
+    Dict.stub(:get_single_dictionary_translations).and_return("test response")
+
     get "/single/fake/wiara", :format => :json
     response.should be_success
+    expected_response = {"fake" => "test response" }
 
-    lambda {JSON.parse(response.body)}.should_not raise_error
+    JSON.parse(response.body).should eq expected_response
   end
 
   it "returns JSON of available services" do
@@ -26,23 +33,5 @@ describe "api" do
 
     expected_value = Dict.available_services
     JSON.parse(response.body).should eq expected_value
-  end
-
-  it "returns results from a single dictionary" do
-    Search.any_instance.stub(:get_single_service).and_return("any results");
-    Search.any_instance.should_receive(:get_single_service).with("fake", "smok").and_return("results for fake/smok")
-    get "/single/fake/smok", :format => :json
-
-    results = JSON.parse(response.body)
-    results["fake"].should eq "results for fake/smok"
-    results.length.should eq 1
-  end
-
-  it "returns results from all necessary dictionaries" do
-    Search.any_instance.stub(:get_single_service).and_return("any results");
-    get "/smok", :format => :json
-
-    results = JSON.parse(response.body)
-    results.length.should eq Dict.available_services.length
   end
 end

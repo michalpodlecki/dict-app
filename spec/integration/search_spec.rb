@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "search page", :js => true do
 
   before(:each) do
-    Dict.stub(:get_single_dictionary_translations).and_return({});
+    Dict.stub(:get_single_dictionary_translations).and_return({})
   end
 
   it "should have any content" do
@@ -33,7 +33,7 @@ describe "search page", :js => true do
     visit '/smok'
     page.find_by_id("progress_display").has_css?(".hidden").should eq false
   end
-  
+
   it "search field should be focused" do
     visit "/"
     page.evaluate_script("document.activeElement.getAttribute('id')").should eq("query_field")
