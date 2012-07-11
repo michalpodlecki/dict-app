@@ -25,7 +25,7 @@ describe "ui", :js => true do
     before_search = page.find_by_id('results_area').native
 
     fill_in('query_field', :with => 'smok')
-    click_link('search_button')
+    click_button('search_button')
     after_search = page.find_by_id('results_area').native
 
     (before_search == after_search).should eq true
@@ -36,7 +36,7 @@ describe "ui", :js => true do
 
     old_url = page.evaluate_script("document.URL")
     fill_in('query_field', :with => 'smok')
-    click_link('search_button')
+    click_button('search_button')
 
     new_url = page.evaluate_script("document.URL")
 

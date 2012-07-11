@@ -33,12 +33,6 @@ window.render_results = render_results
 setup_input_field = () ->
   field = $('#query_field')
   field.focus()
-  field.focusin ->
-    if field.val() == 'Search...'
-      field.val ''
-  field.focusout ->
-    if field.val() == ''
-      field.val 'Search...'
   field.keypress (e) ->
     if e.which == 13
       run_search()
@@ -52,12 +46,16 @@ push_url = () ->
   window.history.pushState({path:pageurl},'',pageurl);
 
 run_search = () ->
+  query = $('#query_field').val()
+  if $.trim(query) == ''
+    return
+
   push_url()
   execute_search()
 
 execute_search = () ->
   query = $('#query_field').val()
-  if query == ''
+  if $.trim(query) == ''
     return
 
   document.title = 'dict - ' + query

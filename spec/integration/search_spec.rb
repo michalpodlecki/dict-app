@@ -23,7 +23,7 @@ describe "search page", :js => true do
     visit '/'
     old_url = page.evaluate_script("document.URL")
     visit '/smok'
-    click_link('search_button')
+    click_button('search_button')
     after_search = click_link('home_link')
     new_url = page.evaluate_script("document.URL")
     (old_url == new_url).should eq true
