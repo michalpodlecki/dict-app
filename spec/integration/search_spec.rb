@@ -13,7 +13,7 @@ describe "search page", :js => true do
   end
 
   it "renders incoming results" do
-    visit '/some_query'
+    visit '/?q=some_query'
 
     page.execute_script("window.render_results(\"test\");");
     page.has_xpath?("//div[@id='results_area']/*").should eq true
@@ -22,7 +22,7 @@ describe "search page", :js => true do
   it "should take to the home page" do
     visit '/'
     old_url = page.evaluate_script("document.URL")
-    visit '/smok'
+    visit '/?q=smok'
     click_button('search_button')
     after_search = click_link('home_link')
     new_url = page.evaluate_script("document.URL")
@@ -30,7 +30,7 @@ describe "search page", :js => true do
   end
 
   it "any search is in progress" do
-    visit '/smok'
+    visit '/?q=smok'
     page.find_by_id("progress_display").has_css?(".hidden").should eq false
   end
 

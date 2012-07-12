@@ -12,7 +12,7 @@ $(document).ready ->
   execute_search()
 
 copy_query_to_field = () ->
-  query = location.pathname.split("/").pop()
+  query = getParameterByName("q")
   $('#query_field').val decodeURIComponent(query)
 
 bind_back_button = () ->
@@ -42,7 +42,7 @@ setup_button = () ->
     run_search()
 
 push_url = () ->
-  pageurl = $('#query_field').val()
+  pageurl = '?q=' + $('#query_field').val()
   window.history.pushState({path:pageurl},'',pageurl);
 
 run_search = () ->
@@ -62,4 +62,4 @@ execute_search = () ->
   $('#results_area').html ''
   $('#progress_display').removeClass('hidden')
   services = jQuery.parseJSON($('#services').text())
-  $.getScript('/single/' + service + '/' + query) for service in services
+  $.getScript('/single/' + service + '?q=' + query) for service in services

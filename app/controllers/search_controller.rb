@@ -1,9 +1,4 @@
 class SearchController < ApplicationController
-  def index
-    @results = {}
-    @services = Search.new.available_services
-  end
-
   def search
     if params[:service]
       @services = [params[:service]]
@@ -11,15 +6,14 @@ class SearchController < ApplicationController
       @services = Search.new.available_services
     end
 
-    @results = {}
-    @query = params[:query]
+    @query = params[:q] || ""
     search = Search.new
 
     respond_to do |format|
       format.html { render :action => "index" }
       format.json  do
         begin
-          @results = search.get_results_for(@services, params[:query])
+          @results = search.get_results_for(@services, @query)
           render :json => @results
         rescue Search::LoadError => e
           @exception_info = e.original.message
@@ -28,7 +22,7 @@ class SearchController < ApplicationController
       end
       format.js do
         begin
-          @results = search.get_results_for(@services, params[:query])
+          @results = search.get_results_for(@services, @query)
           render :action => "index"
         rescue Search::LoadError => e
           @exception_info = e.original.message

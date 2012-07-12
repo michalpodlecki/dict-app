@@ -8,6 +8,3 @@
 #progress_display{:class => 'hidden'} loading more results...
 
 #results_area
-  - @results.each do |service, result|
-    .result= render :partial => "search/services/" + service, :locals => {:result => result}
-
