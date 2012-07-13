@@ -10,7 +10,7 @@ class SearchController < ApplicationController
     search = Search.new
 
     respond_to do |format|
-      format.html { render :action => "index" }
+      format.html
       format.json  do
         begin
           @results = search.get_results_for(@services, @query)
@@ -23,7 +23,6 @@ class SearchController < ApplicationController
       format.js do
         begin
           @results = search.get_results_for(@services, @query)
-          render :action => "index"
         rescue Search::LoadError => e
           @exception_info = e.original.message
           render :template => 'search/load_error'

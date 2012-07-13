@@ -8,7 +8,7 @@ To get translations of `query` from all available dictionaries (JSON or HTML):
 
 To get translation of `query` from one, selected `dictionary` (JSON or HTML):
 
-    http://hostname/dictionary/?q=query
+    http://hostname/dictionary?q=query
 
 To get a list of available dictionaries (JSON only):
 
