@@ -17,7 +17,7 @@ class SearchController < ApplicationController
           render :json => @results
         rescue Search::LoadError => e
           @exception_info = e.original.message
-          render :template => 'errors/loadError'
+          render :json => ["Some error"]
         end
       end
       format.js do
@@ -26,6 +26,7 @@ class SearchController < ApplicationController
           render :action => "index"
         rescue Search::LoadError => e
           @exception_info = e.original.message
+          render :template => 'search/load_error'
         end
       end
     end
