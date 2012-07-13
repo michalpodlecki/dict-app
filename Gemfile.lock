@@ -140,15 +140,15 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    shelly (0.1.13)
+    shelly (0.1.16)
       grit
       json
       launchy
       progressbar
       rest-client
-      shelly-dependencies (~> 0.1.1)
+      shelly-dependencies (~> 0.2.1)
       wijet-thor (~> 0.14.7)
-    shelly-dependencies (0.1.2)
+    shelly-dependencies (0.2.1)
       rake
       thin
     slop (3.3.2)
