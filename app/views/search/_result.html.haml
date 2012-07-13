@@ -1,0 +1,19 @@
+.result-header
+  %h2= services[0]
+.result-content
+  .translations
+    %h3 Translations
+    - if result.translations.empty?
+      %p No translations found
+    - else
+      %p= result.translations[query].join(", ")
+  .other_translations
+    %h3 Useful translations
+    - result.translations.each_pair do |word, translation|
+      %p #{word}: <i>#{translation.join(', ')}</i>
+  .examples
+    - if !result.examples.empty?
+      %h3 Usage examples
+      %ol
+        - result.examples[query].each do |example|
+          %li= example
