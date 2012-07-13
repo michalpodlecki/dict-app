@@ -1,5 +1,5 @@
 DictApp::Application.routes.draw do
-  match 'single/:service' => 'search#search'
+  match ':service' => 'search#search'
   match 'services/list' => 'search#services', :format => false, :defaults => { :format => 'json' }
 
   # The priority is based upon order of creation:
