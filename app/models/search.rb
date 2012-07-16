@@ -19,8 +19,8 @@ class Search
     end
   end
 
-  def available_services
-    Dict.available_services
+  def available_dictionaries
+    Dict.available_dictionaries
   end
 
   class LoadError < Exception

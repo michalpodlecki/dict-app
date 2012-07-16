@@ -3,14 +3,18 @@ class SearchController < ApplicationController
     if params[:service]
       @services = [params[:service]]
     else
-      @services = Search.new.available_services
+      @services = Search.new.available_dictionaries
     end
 
     @query = params[:q] || ""
     search = Search.new
 
     respond_to do |format|
-      format.html
+      format.html do
+        @results = search.get_results_for(@services, @query)
+        render :html => @results
+      end
+      
       format.json  do
         begin
           @results = search.get_results_for(@services, @query)
@@ -32,7 +36,7 @@ class SearchController < ApplicationController
   end
 
   def services
-    services = Search.new.available_services
+    services = Search.new.available_dictionaries
     respond_to do |format|
       format.json  { render :json => services }
     end
