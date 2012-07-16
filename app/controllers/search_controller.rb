@@ -10,11 +10,7 @@ class SearchController < ApplicationController
     search = Search.new
 
     respond_to do |format|
-      format.html do
-        @results = search.get_results_for(@services, @query)
-        render :html => @results
-      end
-      
+      format.html
       format.json  do
         begin
           @results = search.get_results_for(@services, @query)
