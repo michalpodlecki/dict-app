@@ -1,1 +1,1 @@
-window.render_results("<%= escape_javascript( render(:partial => 'errors/load_error')) %>");
+window.show_error("<%= escape_javascript(@exception_info) %>")

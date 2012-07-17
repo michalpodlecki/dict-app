@@ -38,4 +38,13 @@ describe "search page", :js => true do
     visit "/"
     page.evaluate_script("document.activeElement.getAttribute('id')").should eq("query_field")
   end
+
+  it "displays notification when query failed due to some exception" do
+    visit '/wiktionary?q=smok'
+    Dict.stub(:get_single_dictionary_translations).and_throw('some major error')
+    click_button('search_button')
+
+    page.has_css?(".noty_message").should eq true
+    page.should have_content('some major error')
+  end
 end

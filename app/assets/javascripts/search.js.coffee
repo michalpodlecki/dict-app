@@ -53,6 +53,10 @@ run_search = () ->
   push_url()
   execute_search()
 
+make_fail_callback = (service) ->
+  () ->
+    window.show_error('Unable to receive translations from ' + service)
+
 execute_search = () ->
   query = $('#query_field').val()
   if $.trim(query) == ''
@@ -62,4 +66,4 @@ execute_search = () ->
   $('#results_area').html ''
   $('#progress_display').removeClass('hidden')
   services = jQuery.parseJSON($('#services').text())
-  $.getScript(service + '?q=' + query) for service in services
+  $.getScript(service + '?q=' + query).fail(make_fail_callback(service)) for service in services
