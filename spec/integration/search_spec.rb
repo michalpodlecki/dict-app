@@ -52,6 +52,6 @@ describe "search page", :js => true do
     click_button('search_button')
 
     page.has_css?(".noty_message").should eq true
-    page.should have_content('some major error')
+    page.should have_content('Unable to receive translations from wiktionary')
   end
 end
