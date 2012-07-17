@@ -22,11 +22,4 @@ class Search
   def available_dictionaries
     Dict.available_dictionaries
   end
-
-  class LoadError < Exception
-    attr_reader :original
-    def initialize(original = $!)
-      @original = original
-    end
-  end
 end
