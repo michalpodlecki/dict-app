@@ -12,7 +12,7 @@ $(document).ready ->
   execute_search()
 
 copy_query_to_field = () ->
-  query = getParameterByName("q")
+  query = window.get_param("q")
   $('#query_field').val decodeURIComponent(query)
 
 bind_back_button = () ->
