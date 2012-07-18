@@ -11,3 +11,6 @@
     #content
       = link_to image_tag("dict-logo.png", {:alt => "dict:", :id => "dict-logo"}), '/', {:id => "home_link"}
       = yield
+    #footer
+      .footer_nav
+        = link_to 'About', :controller => "static", :action => "about"
