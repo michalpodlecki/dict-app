@@ -1,5 +1,5 @@
 # dict [![Build Status](https://secure.travis-ci.org/Ragnarson/dict-app.png?branch=master)](http://travis-ci.org/Ragnarson/dict-app)
-Web frontend and API for dict.
+Web frontend and API for [dict](http://dict-app-staging.shellyapp.com/).
 
 ## API
 To get translations of `query` from all available dictionaries (JSON or HTML):
@@ -28,8 +28,7 @@ To get a list of available dictionaries (JSON only):
 - [Grzegorz Kołodziejczyk](https://github.com/grk)
 - [Michał Kwiatkowski](https://github.com/mkwiatkowski)
 
-## Made during intership at Ragnarson
-[Ragnarson](http://ragnarson.com/)
+## Made during internship at [Ragnarson](http://ragnarson.com/)
 
-## Hosted by
-[Shelly Cloud](https://shellycloud.com/)
+## Hosted by [Shelly Cloud](https://shellycloud.com/)
+
