@@ -1,6 +1,5 @@
 #services{:class => 'hidden'}= @services.to_json
 
-= link_to image_tag("dict-logo.png", {:alt => "dict:", :id => "dict-logo"}), '/', {:id => "home_link"}
 #search_area
   %input{:type => "text", :name => "q", :id => "query_field", :class => "search", :placeholder => "Wyszukaj..."}
   %input{:type => 'button', :class => 'button', :id => 'search_button', :value => "Tłumacz"}

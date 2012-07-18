@@ -8,4 +8,6 @@
   %body
     %a{:href => "https://github.com/Ragnarson/dict-app"}
       %img{:style => "position: absolute; top: 0; right: 0; border: 0;", :src => "https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", :alt => "Fork me on GitHub"}
-    #content= yield
+    #content
+      = link_to image_tag("dict-logo.png", {:alt => "dict:", :id => "dict-logo"}), '/', {:id => "home_link"}
+      = yield
