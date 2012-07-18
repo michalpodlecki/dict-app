@@ -1,9 +1,3 @@
 #services{:class => 'hidden'}= @services.to_json
-
-#search_area
-  %input{:type => "text", :name => "q", :id => "query_field", :class => "search", :placeholder => "Wyszukaj..."}
-  %input{:type => 'button', :class => 'button', :id => 'search_button', :value => "Tłumacz"}
-
-#progress_display{:class => 'hidden'} loading more results...
-
-#results_area
+#progress-display{:class => 'hidden'} loading more results...
+#results-area

@@ -11,10 +11,10 @@ describe "ui", :js => true do
     visit '/'
 
     page.execute_script("window.render_results(\"test1\");");
-    old_hash = page.find(:xpath, "//div[@id='results_area']/div[1]").native.hash
+    old_hash = page.find(:xpath, "//div[@id='results-area']/div[1]").native.hash
 
     page.execute_script("window.render_results(\"test2\");");
-    new_hash = page.find(:xpath, "//div[@id='results_area']/div[2]").native.hash
+    new_hash = page.find(:xpath, "//div[@id='results-area']/div[2]").native.hash
 
     new_hash.should eq old_hash
   end
@@ -22,11 +22,11 @@ describe "ui", :js => true do
   it "clears the previous results when new search is issued" do
     visit '/'
     page.execute_script("window.render_results(\"test\");");
-    before_search = page.find_by_id('results_area').native
+    before_search = page.find_by_id('results-area').native
 
-    fill_in('query_field', :with => 'smok')
-    click_button('search_button')
-    after_search = page.find_by_id('results_area').native
+    fill_in('query-field', :with => 'smok')
+    click_button('search-button')
+    after_search = page.find_by_id('results-area').native
 
     (before_search == after_search).should eq true
   end
@@ -35,8 +35,8 @@ describe "ui", :js => true do
     visit '/'
 
     old_url = page.evaluate_script("document.URL")
-    fill_in('query_field', :with => 'smok')
-    click_button('search_button')
+    fill_in('query-field', :with => 'smok')
+    click_button('search-button')
 
     new_url = page.evaluate_script("document.URL")
 
