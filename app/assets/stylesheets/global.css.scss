@@ -7,7 +7,7 @@ body, p {
   font-size: 13px;
 }
 
-div, input, a {
+div, input, a, p, h2 {
   margin: 0px;
   padding: 0px;
 }
@@ -16,7 +16,7 @@ input {
   outline: none;
 }
 
-input::-moz-focus-inner { 
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -117,7 +117,7 @@ input::-moz-focus-inner {
 
 #content {
   margin: auto;
-  width: 940px;
+  width: 960px;
 }
 
 #footer {
