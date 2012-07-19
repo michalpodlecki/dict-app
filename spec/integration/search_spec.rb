@@ -5,13 +5,6 @@ describe "search page", :js => true do
   before(:each) do
     Dict.stub(:get_single_dictionary_translations).and_return({})
   end
-  
-  it "should raise LoadError when get_single_dictionary_translations raises Exception" do
-    Dict.should_receive(:get_single_dictionary_translations).and_raise(Exception)
-    expect {  
-      Search.new.get_single_service(nil, nil)
-    }.to raise_error(LoadError)
-  end
 
   it "should have any content" do
     visit '/'
