@@ -1,16 +1,6 @@
-.result-header
-  %h2= services
-.result-content
-  .translations
-    %h3 Translations
-    - if result.empty?
-      %p No translations found
-    - else
-      - result.each_pair do |word, translation|
-        %p #{word}: <i>#{translation.join(', ')}</i>
-  .other_translations
-    %h3 Useful translations
-    - result.each_pair do |word, translation|
-      %p #{word}: <i>#{translation.join(', ')}</i>
-  .examples
-
+%h2= services
+- if result.empty?
+  %p No translations found
+- else
+  - result.each_pair do |word, translation|
+    %p #{word}: <i>#{translation.join(', ')}</i>

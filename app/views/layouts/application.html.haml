@@ -6,6 +6,17 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %a{:href => "https://github.com/Ragnarson/dict-app"}
-      %img{:style => "position: absolute; top: 0; right: 0; border: 0;", :src => "https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", :alt => "Fork me on GitHub"}
-    #content= yield
+    #wrapper
+      #header
+        #header-inner
+          = link_to image_tag("dicteo-logo.png", {:alt => "dict:", :id => "dict-logo"}), '/', {:id => "home-link"}
+          #search-area
+            %input{:type => "text", :name => "q", :id => "query-field", :class => "search", :placeholder => "Wyszukaj..."}
+            %input{:type => 'button', :class => 'button', :id => 'search-button', :value => "Tłumacz"}
+      #content
+        = yield
+      #footer
+        #footer-inner
+          = link_to 'About', :controller => "static", :action => "about"
+      %a{:href => "https://github.com/Ragnarson/dict-app"}
+        = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; right: 0; border: 0;", :id => "Fork me on GitHub"})
