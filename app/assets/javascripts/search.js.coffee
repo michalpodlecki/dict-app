@@ -3,13 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  setup_input_field()
-  setup_button()
-  $('#progress-display').ajaxStop ->
-    $(this).addClass 'hidden'
-  bind_back_button()
-  copy_query_to_field()
-  execute_search()
+  if $('#results-area').length
+    setup_input_field()
+    setup_button()
+    $('#progress-display').ajaxStop ->
+      $(this).addClass 'hidden'
+    bind_back_button()
+    copy_query_to_field()
+    execute_search()
 
 copy_query_to_field = () ->
   query = window.get_param("q")
