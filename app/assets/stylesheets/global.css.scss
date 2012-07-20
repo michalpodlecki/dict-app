@@ -3,6 +3,10 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+#wrapper {
+  height: 100%;
+}
+
 body, p {
   font-size: 13px;
 }
@@ -118,11 +122,12 @@ input::-moz-focus-inner {
 #content {
   margin: auto;
   width: 960px;
+  margin-bottom: 100px;
 }
 
 #footer {
   width: 100%;
-  position:absolute;
+  position: fixed;
   bottom: 0px;
   border-top: 1px solid #363636;
   background-image: url(footer-bg.png);
