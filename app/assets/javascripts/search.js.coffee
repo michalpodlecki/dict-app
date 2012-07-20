@@ -63,7 +63,7 @@ execute_search = () ->
   if $.trim(query) == ''
     return
 
-  document.title = 'dict - ' + query
+  document.title = 'Dicteo - ' + query
   $('#results-area').html ''
   $('#progress-display').removeClass('hidden')
   services = jQuery.parseJSON($('#services').text())
