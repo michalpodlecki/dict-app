@@ -2,84 +2,88 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+window.at_search_page = ->
+  $('#results-area').length
+
+get_field_value = ->
+  $('#query-field').val()
+
+is_query_valid = (query) ->
+  $.trim(query) != ''
+
 $(document).ready ->
-  $.ajaxSetup( { cache: true } )
-  if $('#results-area').length
+  if at_search_page()
     setup_input_field()
     setup_button()
-    $('#progress-display').ajaxStop ->
-      $(this).addClass 'hidden'
+    setup_ajax()
     bind_back_button()
     copy_query_to_field()
-    execute_search()
 
-copy_query_to_field = () ->
-  query = window.get_param("q")
-  $('#query-field').val decodeURIComponent(query)
+    query = get_field_value()
+    if is_query_valid(query)
+      execute_search(get_field_value())
 
-bind_back_button = () ->
-  $(window).bind 'popstate', ->
-    field_value = $('#query-field').val()
-    copy_query_to_field()
-    if field_value != $('#query-field').val()
-      execute_search()
-
-construct_result = (data) ->
-  return '<div class=\'result\'>' + data + '</div>';
-
-render_results = (data) ->
-  $('#results-area').prepend(construct_result(data));
-  $('.result:first').effect('highlight', {}, 1000);
-window.render_results = render_results
-
-setup_input_field = () ->
+setup_input_field = ->
   field = $('#query-field')
   field.focus()
   field.keypress (e) ->
     if e.which == 13
       run_search()
 
-setup_button = () ->
+setup_button = ->
   $('#search-button').click ->
     run_search()
 
-push_url = () ->
-  pageurl = '?q=' + $('#query-field').val()
-  window.history.pushState({path:pageurl},'',pageurl)
+setup_ajax = ->
+  $('#progress-display').ajaxStop ->
+    $(this).addClass 'hidden'
+  $.ajaxSetup( { cache: true } )
 
-  if typeof _gauges isnt "undefined"
-    _gauges.push(['track'])
+bind_back_button = ->
+  $(window).bind 'popstate', ->
+    field_value = get_field_value()
+    copy_query_to_field()
 
-run_search = () ->
-  query = $('#query-field').val()
-  if $.trim(query) == ''
+    query = get_field_value()
+    if field_value != query
+      execute_search(query)
+
+copy_query_to_field = ->
+  query = window.get_param('q')
+  $('#query-field').val decodeURIComponent(query)
+
+push_url = (query) ->
+  if not is_query_valid(query)
     return
 
-  push_url()
-  execute_search()
+  pageurl = "?q=#{query}"
+  window.history.pushState({path:pageurl},'',pageurl)
+
+  if typeof _gauges isnt 'undefined'
+    _gauges.push(['track'])
+
+run_search = ->
+  query = get_field_value()
+
+  push_url(query)
+  execute_search(query)
 
 make_fail_callback = (service) ->
   () ->
-    window.show_error('Nie można uzyskać tłumaczeń z ' + service)
+    show_error("Nie można uzyskać tłumaczeń z #{service}")
 
-$.ajaxRequests = []
-$.ajaxRequests.abortAll = () ->
-  original_show_error = window.show_error
-  window.show_error = () ->
-  $.each this, (idx, request) ->
-    request.abort()
-  window.show_error = original_show_error
-  $.ajaxRequests.length = 0
+clear_previous_search = ->
+  ajax_requests.abort_all()
+  $('#results-area').html ''
 
-execute_search = () ->
-  query = $('#query-field').val()
-  if $.trim(query) == ''
+execute_search = (query) ->
+  if not is_query_valid(query)
     return
 
-  document.title = 'Dicteo - ' + query
-  $('#results-area').html ''
-  services = jQuery.parseJSON($('#services').text())
+  clear_previous_search()
 
-  $.ajaxRequests.abortAll()
   $('#progress-display').removeClass('hidden')
-  $.ajaxRequests.push($.getScript('/dictionaries/' + service + '.js?q=' + query).fail(make_fail_callback(service))) for service in services
+
+  document.title = "Dicteo - #{query}"
+  services = jQuery.parseJSON($('#services').text())
+  ajax_requests.push($.getScript("/dictionaries/#{service}.js?q=#{query}").fail(make_fail_callback(service))) for service in services
