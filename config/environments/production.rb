@@ -15,7 +15,6 @@ DictApp::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.precompile += ['mobile.css']
   config.assets.compile = false
 
   # Generate digests for assets URLs

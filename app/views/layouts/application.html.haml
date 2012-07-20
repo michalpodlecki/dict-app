@@ -3,10 +3,9 @@
   %head
     %title dict
     = stylesheet_link_tag "application", :media => "all"
-    = stylesheet_link_tag "mobile", :media => "handheld"
-    = stylesheet_link_tag "mobile", :media => "screen and (max-width: 960px)"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    %meta{:name=>"viewport", :content => "width=device-width"}
   %body
     #wrapper
       #header

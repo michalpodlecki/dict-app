@@ -1,7 +1,6 @@
-@media only screen and (max-width : 960px) {
-
+@media only screen and (max-width: 480px) {
   body, p {
-    font-size: 120%;
+    font-size: 67%;
   }
 
   #header {
@@ -23,17 +22,19 @@
         #query-field {
           position: inherit;
           width: auto;
-          height: 2.5em;
+          height: 1.5em;
+          margin-top: 0.5em;
           font-size: 1em;
           padding-left:0.5em;
         }
 
         #search-button {
-          position: inherit;
+          position: relative;
+          top: 0.4em;
           float: right;
           width: 6.5em;
           font-size: 0.6em;
-          height: 3.5em;
+          height: 3.8em;
         }
       }
     }
@@ -45,23 +46,24 @@
   }
 
   #results-area {
-    h2 {
-      margin-bottom: 0.3em;
-      font-size: 1em;
-      font-weight: normal;
-      color: #405094;
-    }
-
-    p {
-      margin-left: 2em;
-      margin-bottom: 0.3em;
-      color: #171717;
-    }
-
     .result {
       padding: 0.5em;
 
-      border-bottom: 1px solid #cbcbcb
+      border-bottom: 1px solid #cbcbcb;
+
+      h2 {
+        margin-bottom: 0.3em;
+        font-size: 1.0em;
+        font-weight: normal;
+        color: #405094;
+      }
+
+      p {
+        margin-left: 2em;
+        margin-bottom: 0.3em;
+        color: #171717;
+        font-size: 1em;
+      }
     }
   }
 
