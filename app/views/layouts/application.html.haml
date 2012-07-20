@@ -16,18 +16,16 @@
             %input{:type => 'button', :class => 'button', :id => 'search-button', :value => "Tłumacz"}
       #content
         = yield
-      #footer{:class => 'container'}
-        #footer-inner{:class => 'row'}
-          %ul{:class => 'sponsor'}
-            %li{:class => 'about'}
-              = link_to 'About', :controller => "static", :action => "about"
-            %li{:class => 'host'}
-              Host By:
-            %li
+      #footer
+        #footer-inner
+          #footer-links
+            = link_to 'About', :controller => "static", :action => "about"
+          #footer-logos
+            .footer-logo
+              %p Hosted By:
               = link_to image_tag("shelly-logo.png"), 'https://shellycloud.com/'
-            %li{:class => 'intership'}
-              Made during internship at:
-            %li
+            .footer-logo
+              %p Made during internship at:
               = link_to image_tag("ragnarson-logo.jpg"),'http://ragnarson.com/'
       %a{:href => "https://github.com/Ragnarson/dict-app", :id => "github-ribbon"}
         = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; left: 0; border: 0;", :alt => "Fork me on GitHub"})
