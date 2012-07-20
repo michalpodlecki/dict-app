@@ -2,6 +2,8 @@ require 'dict'
 
 class SearchController < ApplicationController
   def search
+    expires_in 30.minutes
+    
     if params[:service]
       @services = [params[:service]]
     else
