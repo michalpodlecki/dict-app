@@ -125,7 +125,7 @@ input::-moz-focus-inner {
   margin-bottom: 100px;
 }
 
-#footer {
+.container {
   width: 100%;
   position: fixed;
   bottom: 0px;
@@ -134,19 +134,49 @@ input::-moz-focus-inner {
   height: 49px;
   text-align: center;
 
-  #footer-inner {
+  .row {
+    position: relative;
+    bottom: 11px;
     margin: auto;
     width: 940px;
   }
 
-  a {
+  .span12 {
+    width: 940px;
+  }
+
+  ul.sponsor {
+    margin-left: 0;
+  }
+
+  ul.sponsor li {
+    margin-top:0px;
+    margin-left:20px;
+    display: inline;
+    padding: 0;
+  }
+  li.about a {
     position: relative;
-    top: 15px;
+    bottom: 18px;
     color: #c8d7e3;
     font-size: 11px;
     text-decoration: none;
     text-shadow: 0px -1px 0px #171b3e;
   }
+
+  li.host {
+    color: #c8d7e3;
+    bottom: 27px;
+    position:relative;
+
+  }
+
+  li.intership {
+    color: #c8d7e3;
+    bottom: 27px;
+    position:relative;
+  }
+
 
   a:hover {
     color: white;
