@@ -152,6 +152,17 @@ input::-moz-focus-inner {
         text-shadow: 0px -1px 0px #171b3e;
       }
 
+      a::after {
+        content: " |";
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+      }
+
+      a.last-link::after {
+        content: "";
+        margin: 0;
+      }
+
       a:hover {
         color: white;
       }
