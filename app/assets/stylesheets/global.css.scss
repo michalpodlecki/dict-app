@@ -172,11 +172,15 @@ input::-moz-focus-inner {
       display: inline-block;
       position: relative;
       top: 3px;
-      opacity: 0.5;
 
       .footer-logo {
         display: inline-block;
         margin-right: 10px;
+        opacity: 0.5;
+      }
+
+      .footer-logo:hover {
+        opacity: 1;
       }
 
       p {
