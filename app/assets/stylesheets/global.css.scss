@@ -142,7 +142,7 @@ input::-moz-focus-inner {
     #footer-links {
       display: inline-block;
       position: relative;
-      bottom: 20px;
+      bottom: 21px;
       margin-right: 40px;
 
       a {
@@ -172,6 +172,7 @@ input::-moz-focus-inner {
         color: #c8d7e3;
         text-shadow: 0px -1px 0px #373b5e;
         font-size: 11px;
+        margin-bottom: 3px;
       }
     }
   }
