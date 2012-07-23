@@ -20,7 +20,8 @@
       #footer
         #footer-inner
           #footer-links
-            = link_to 'About', :controller => "static", :action => "about"
+            = link_to 'Zgłoś uwagę', 'https://github.com/Ragnarson/dict-app/issues/'
+            = link_to 'About', {:controller => "static", :action => "about"}, :class => "last-link"
           #footer-logos
             .footer-logo
               %p Hosted By:
