@@ -40,7 +40,7 @@ describe "search page", :js => true do
   end
 
   it "displays notification when query failed due to some exception" do
-    visit '/wiktionary?q=smok'
+    visit '/dictionaries/wiktionary?q=smok'
     Dict.stub(:get_single_dictionary_translations).and_throw('some major error')
     click_button('search-button')
 

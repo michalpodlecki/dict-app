@@ -20,7 +20,7 @@ describe "api" do
   it "returns JSON results for single result query" do
     Dict.stub(:get_single_dictionary_translations).and_return("test response")
 
-    get "/fake/?q=wiara", :format => :json
+    get "/dictionaries/fake/?q=wiara", :format => :json
     response.should be_success
     expected_response = {"fake" => "test response" }
 
@@ -28,7 +28,7 @@ describe "api" do
   end
 
   it "returns JSON of available services" do
-    get "/services/list", :format => :json
+    get "/dictionaries", :format => :json
     response.should be_success
 
     expected_value = Dict.available_dictionaries
