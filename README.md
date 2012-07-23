@@ -6,13 +6,13 @@ To get translations of `query` from all available dictionaries (JSON or HTML):
 
     http://hostname/?q=query
 
-To get translation of `query` from one, selected `dictionary` (JSON or HTML):
+To get translation of `query` from one, selected dictionary (e.g. wiktionary) (JSON or HTML):
 
-    http://hostname/dictionary?q=query
+    http://hostname/dictionaries/wiktionary?q=query
 
 To get a list of available dictionaries (JSON only):
 
-    http://hostname/services/list
+    http://hostname/dictionaries/list
 
 ## People
 

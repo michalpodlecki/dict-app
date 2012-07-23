@@ -1,8 +1,9 @@
 DictApp::Application.routes.draw do
   get "static/about"
 
-  match ':service' => 'search#search'
-  match 'services/list' => 'search#services', :format => false, :defaults => { :format => 'json' }
+  match 'dictionaries/:service' => 'search#search'
+  match 'dictionaries' => 'search#services', :format => false, :defaults => { :format => 'json' }
+
   get 'static/about'
 
   # The priority is based upon order of creation:

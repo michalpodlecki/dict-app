@@ -67,4 +67,4 @@ execute_search = () ->
   $('#results-area').html ''
   $('#progress-display').removeClass('hidden')
   services = jQuery.parseJSON($('#services').text())
-  $.getScript(service + '?q=' + query).fail(make_fail_callback(service)) for service in services
+  $.getScript('dictionaries/' + service + '?q=' + query).fail(make_fail_callback(service)) for service in services
