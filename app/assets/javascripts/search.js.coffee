@@ -58,6 +58,15 @@ make_fail_callback = (service) ->
   () ->
     window.show_error('Unable to receive translations from ' + service)
 
+$.ajaxRequests = []
+$.ajaxRequests.abortAll = () ->
+  original_show_error = window.show_error
+  window.show_error = () ->
+  $.each this, (idx, request) ->
+    request.abort()
+  window.show_error = original_show_error
+  $.ajaxRequests.length = 0
+
 execute_search = () ->
   query = $('#query-field').val()
   if $.trim(query) == ''
@@ -65,6 +74,8 @@ execute_search = () ->
 
   document.title = 'Dicteo - ' + query
   $('#results-area').html ''
-  $('#progress-display').removeClass('hidden')
   services = jQuery.parseJSON($('#services').text())
-  $.getScript('dictionaries/' + service + '?q=' + query).fail(make_fail_callback(service)) for service in services
+
+  $.ajaxRequests.abortAll()
+  $('#progress-display').removeClass('hidden')
+  $.ajaxRequests.push($.getScript('dictionaries/' + service + '?q=' + query).fail(make_fail_callback(service))) for service in services
