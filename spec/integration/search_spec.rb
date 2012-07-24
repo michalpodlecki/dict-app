@@ -41,11 +41,11 @@ describe "search page", :js => true do
   end
 
   it "displays notification when query failed due to some exception" do
-    visit '/dictionaries/wiktionary?q=smok'
     Dict.stub(:get_single_dictionary_translations).and_throw('some major error')
+    visit '/dictionaries/wrong_dictionary?q=smok'
     click_button('search-button')
 
     page.has_css?(".noty_message").should eq true
-    page.should have_content('Nie można uzyskać tłumaczeń z wiktionary')
+    page.should have_content('Nie można uzyskać tłumaczeń z wrong_dictionary')
   end
 end

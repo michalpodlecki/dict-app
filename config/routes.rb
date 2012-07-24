@@ -1,6 +1,7 @@
 DictApp::Application.routes.draw do
   get "static/about"
 
+  match 'dictionaries/:service' => 'search#search', :constraints => {:service => /\.js^/}, :format => false, :defaults => { :format => 'js' }
   match 'dictionaries/:service' => 'search#search'
   match 'dictionaries' => 'search#services', :format => false, :defaults => { :format => 'json' }
 

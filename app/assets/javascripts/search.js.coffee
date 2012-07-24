@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
+  $.ajaxSetup( { cache: true } )
   if $('#results-area').length
     setup_input_field()
     setup_button()
@@ -79,4 +80,4 @@ execute_search = () ->
 
   $.ajaxRequests.abortAll()
   $('#progress-display').removeClass('hidden')
-  $.ajaxRequests.push($.getScript('dictionaries/' + service + '?q=' + query).fail(make_fail_callback(service))) for service in services
+  $.ajaxRequests.push($.getScript('/dictionaries/' + service + '.js?q=' + query).fail(make_fail_callback(service))) for service in services
