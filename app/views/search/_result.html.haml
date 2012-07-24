@@ -1,6 +1,6 @@
 %h2= services
 - if result.empty?
-  %p No translations found
+  %p Nie znaleziono tłumaczeń
 - else
   - result.each_pair do |word, translation|
     %p #{word}: <i>#{translation.join(', ')}</i>

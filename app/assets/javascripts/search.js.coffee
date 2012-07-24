@@ -56,7 +56,7 @@ run_search = () ->
 
 make_fail_callback = (service) ->
   () ->
-    window.show_error('Unable to receive translations from ' + service)
+    window.show_error('Nie można uzyskać tłumaczeń z ' + service)
 
 $.ajaxRequests = []
 $.ajaxRequests.abortAll = () ->
