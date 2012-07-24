@@ -47,7 +47,7 @@ push_url = () ->
   pageurl = '?q=' + $('#query-field').val()
   window.history.pushState({path:pageurl},'',pageurl)
 
-  if _gauges
+  if typeof _gauges isnt "undefined"
     _gauges.push(['track'])
 
 run_search = () ->
