@@ -46,7 +46,9 @@ setup_button = () ->
 push_url = () ->
   pageurl = '?q=' + $('#query-field').val()
   window.history.pushState({path:pageurl},'',pageurl)
-  _gauges.push(['track'])
+
+  if _gauges
+    _gauges.push(['track'])
 
 run_search = () ->
   query = $('#query-field').val()
