@@ -2,7 +2,7 @@ require 'dict'
 
 class SearchController < ApplicationController
   def search
-    expires_in 30.minutes, :public => true, 'max-stale' => 0
+    expires_in 14.day, :public => true, 'max-stale' => 0
     
     if params[:service]
       @services = [params[:service]]
