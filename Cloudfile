@@ -5,6 +5,8 @@ dict-app-staging:
   domains:
     - dict-app-staging.shellyapp.com
     - staging.dicteo.pl
+    - www.dicteo.pl
+    - dicteo.pl
   servers:
     app1:
       size: large

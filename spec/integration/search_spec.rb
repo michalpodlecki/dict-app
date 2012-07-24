@@ -45,6 +45,6 @@ describe "search page", :js => true do
     click_button('search-button')
 
     page.has_css?(".noty_message").should eq true
-    page.should have_content('Unable to receive translations from wiktionary')
+    page.should have_content('Nie można uzyskać tłumaczeń z wiktionary')
   end
 end

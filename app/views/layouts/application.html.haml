@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Dicteo - wyszukiwarka tlumaczeń
+    %title Dicteo - wyszukiwarka tłumaczeń
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -21,13 +21,13 @@
         #footer-inner
           #footer-links
             = link_to 'Zgłoś uwagę', 'https://github.com/Ragnarson/dict-app/issues/'
-            = link_to 'About', {:controller => "static", :action => "about"}, :class => "last-link"
+            = link_to 'O nas', {:controller => "static", :action => "about"}, :class => "last-link"
           #footer-logos
             .footer-logo
-              %p Hosted By:
+              %p Hosting:
               = link_to image_tag("shelly-logo.png"), 'https://shellycloud.com/'
             .footer-logo
-              %p Made during internship at:
+              %p Stworzono na praktykach w:
               = link_to image_tag("ragnarson-logo.jpg"),'http://ragnarson.com/'
       %a{:href => "https://github.com/Ragnarson/dict-app", :id => "github-ribbon"}
         = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; left: 0; border: 0;", :alt => "Fork me on GitHub"})
