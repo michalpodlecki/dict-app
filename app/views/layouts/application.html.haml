@@ -26,10 +26,8 @@
             = link_to 'O nas', {:controller => "static", :action => "about"}, :class => "last-link"
           #footer-logos
             .footer-logo
-              %p Hosting:
               = link_to image_tag("shelly-logo.png"), 'https://shellycloud.com/'
             .footer-logo
-              %p Stworzono na praktykach w:
               = link_to image_tag("ragnarson-logo.jpg"),'http://ragnarson.com/'
       %a{:href => "https://github.com/Ragnarson/dict-app", :id => "github-ribbon"}
         = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; left: 0; border: 0;", :alt => "Fork me on GitHub"})

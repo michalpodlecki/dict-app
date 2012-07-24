@@ -131,7 +131,7 @@ input::-moz-focus-inner {
   bottom: 0px;
   border-top: 1px solid #363636;
   background-image: url(footer-bg.png);
-  height: 80px;
+  height: 64px;
   text-align: center;
 
   #footer-inner {
@@ -142,8 +142,8 @@ input::-moz-focus-inner {
     #footer-links {
       display: inline-block;
       position: relative;
-      bottom: 14px;
-      margin-right: 40px;
+      bottom: 7px;
+      margin-right: 20px;
 
       a {
         color: #c8d7e3;
@@ -171,7 +171,9 @@ input::-moz-focus-inner {
     #footer-logos {
       display: inline-block;
       position: relative;
-      top: 10px;
+      top: 11px;
+      padding-left: 12px;
+      border-left: 1px solid #559;
 
       .footer-logo {
         display: inline-block;
