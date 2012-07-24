@@ -1,5 +1,5 @@
 # dict [![Build Status](https://secure.travis-ci.org/Ragnarson/dict-app.png?branch=master)](http://travis-ci.org/Ragnarson/dict-app)
-Web frontend and API for [dict](http://staging.dicteo.pl/).
+Web frontend and API for [dict](http://dicteo.pl/).
 
 ## API
 To get translations of `query` from all available dictionaries (JSON or HTML):
