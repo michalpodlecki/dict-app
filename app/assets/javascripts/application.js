@@ -14,5 +14,3 @@
 //= require jquery.effects.highlight
 //= require_tree .
 
-
-jQuery.ajaxSetup({cache:true});
