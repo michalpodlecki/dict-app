@@ -2,5 +2,10 @@
 - if result.empty?
   %p Nie znaleziono tłumaczeń
 - else
-  - result.each_pair do |word, translation|
-    %p #{word}: <i>#{translation.join(', ')}</i>
+  - result.each_pair do |word, translations|
+    %p
+      #{word}:
+      - translations.each_with_index do |t, index|
+        - t.gsub(/[^\w\sąćęłńóśźż]+/,'').split(' ').each do |item|
+          = link_to item, '/?q=' + item
+        = (index == translations.size - 1 ? '' : ', ')
