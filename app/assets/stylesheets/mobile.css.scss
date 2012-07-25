@@ -44,6 +44,18 @@
     margin: auto;
     width: 95%;
     margin-bottom: 4em;
+
+    #about {
+      margin: 0;
+
+      #about-left {
+        width: 100%;
+      }
+
+      #about-right {
+        float: none;
+      }
+    }
   }
 
   #results-area {
