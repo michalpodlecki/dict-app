@@ -26,13 +26,18 @@
 
     a {
       text-decoration: underline;
-      font-style: italic;
     }
   }
 
   h1 {
     color: #495575;
     margin-bottom: 0.2em;
+  }
+
+  ul {
+    li {
+      color: #495575;
+    }
   }
 
   a {
