@@ -25,6 +25,11 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  font-style: italic;
+}
+
 @mixin rounded($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;

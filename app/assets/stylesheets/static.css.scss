@@ -23,16 +23,20 @@
     font-size: 1.0em;
     text-align: justify;
     text-justify: newspaper;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   h1 {
     color: #495575;
+    margin-bottom: 0.2em;
   }
 
   a {
     color: #495961;
     font-size: 1em;
-    text-decoration: none;
   }
 
   a:hover {
