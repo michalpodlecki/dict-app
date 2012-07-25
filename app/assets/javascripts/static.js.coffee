@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  if !($('#results-area').length)
+  if not at_search_page()
     $('#query-field').keypress (e) ->
       if e.which == 13
         redirect()
@@ -13,4 +13,4 @@ $(document).ready ->
 redirect = () ->
   field = $('#query-field')
   query = field.val()
-  window.location = '/?q=' + query
+  window.location = "/?q=#{query}"

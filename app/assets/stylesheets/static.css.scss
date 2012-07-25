@@ -1,3 +1,41 @@
 // Place all the styles related to the Static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#about {
+  margin-top: 17px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: BandaRegular, Helvetica, Arial, sans-serif;
+
+  #about-left {
+    display: inline-block;
+    width: 50%;
+  }
+
+  #about-right {
+    float: right;
+  }
+
+  p {
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    color: #495961;
+    font-size: 1.0em;
+    text-align: justify;
+    text-justify: newspaper;
+  }
+
+  h1 {
+    color: #495575;
+  }
+
+  a {
+    color: #495961;
+    font-size: 1em;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #ADA0A0;
+  }
+}

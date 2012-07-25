@@ -8,7 +8,7 @@
     %meta{:name=>"viewport", :content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"}
     %meta{:charset => "utf-8"}
     %meta{:name=>"description", :content => "Dicteo.pl - polsko-angielski słownik online. Pozwala błyskawicznie tłumaczyć z wielu słowników jednocześnie. Projekt o otwartym kodzie źródłowym."}
-    %meta{:name=>"keywords", :content => "poprawne słownictwo, polska angielski, słowniki angielskiego, angielski, polski, wiktionary, tłumacz angielskiego, tłumaczenie angielskiego, tłumacz tłumaczenia, tłumaczeń, translator, english, polish, słowniki"}
+    %meta{:name=>"keywords", :content => "słownik, poprawne słownictwo, polsko angielski, słowniki angielskiego, angielski, polski, wiktionary, tłumacz angielskiego, tłumaczenie angielskiego, tłumacz tłumaczenia, tłumaczeń, translator, english, polish, słowniki"}
   %body
     #wrapper
       #header
@@ -26,10 +26,8 @@
             = link_to 'O nas', {:controller => "static", :action => "about"}, :class => "last-link"
           #footer-logos
             .footer-logo
-              %p Hosting:
               = link_to image_tag("shelly-logo.png"), 'https://shellycloud.com/'
             .footer-logo
-              %p Stworzono na praktykach w:
               = link_to image_tag("ragnarson-logo.jpg"),'http://ragnarson.com/'
       %a{:href => "https://github.com/Ragnarson/dict-app", :id => "github-ribbon"}
         = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; left: 0; border: 0;", :alt => "Fork me on GitHub"})

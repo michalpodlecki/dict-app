@@ -2,6 +2,7 @@
 Web frontend and API for [dict](http://dicteo.pl/).
 
 ## API
+### HTML
 To get translations of `query` from all available dictionaries (JSON or HTML):
 
     http://hostname/?q=query
@@ -13,6 +14,12 @@ To get translation of `query` from one, selected dictionary (e.g. wiktionary) (J
 To get a list of available dictionaries (JSON only):
 
     http://hostname/dictionaries/list
+
+### JSON
+`curl -v -H "Accept: application/json" -X POST http://dicteo.pl/?q=dziewica`
+`curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries/glosbe?q=dziewica`
+`curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries/wiktionary?q=dziewica`
+`curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries`
 
 ## People
 
@@ -31,4 +38,3 @@ To get a list of available dictionaries (JSON only):
 ## Made during internship at [Ragnarson](http://ragnarson.com/)
 
 ## Hosted by [Shelly Cloud](https://shellycloud.com/)
-
