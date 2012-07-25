@@ -3,7 +3,7 @@ require 'dict'
 class SearchController < ApplicationController
   def search
     expires_in 14.day, :public => true, 'max-stale' => 0
-    
+
     if params[:service]
       @services = [params[:service]]
     else
@@ -34,13 +34,20 @@ class SearchController < ApplicationController
     end
   end
 
+  def run
+    @query = params[:q] || ""
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def services
     services = Dict.available_dictionaries
     respond_to do |format|
       format.json  { render :json => services }
     end
   end
-  
+
   private
   def get_translations
     {}.tap do |results|

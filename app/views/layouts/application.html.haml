@@ -15,8 +15,9 @@
         #header-inner
           = link_to image_tag("dicteo-logo.png", {:alt => "dict:", :id => "dict-logo"}), '/', {:id => "home-link"}
           #search-area
-            %input{:type => "text", :name => "q", :id => "query-field", :class => "search", :placeholder => "Wyszukaj..."}
-            %input{:type => 'button', :class => 'button', :id => 'search-button', :value => "Tłumacz"}
+            %form{'data-remote' => 'true', :action => '/run.js'}
+              %input{:type => "text", :name => "q", :id => "query-field", :class => "search", :placeholder => "Wyszukaj..."}
+              %input{:type => 'submit', :class => 'button', :id => 'search-button', :value => "Tłumacz"}
       #content
         = yield
       #footer

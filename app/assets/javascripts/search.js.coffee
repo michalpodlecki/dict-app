@@ -14,7 +14,6 @@ is_query_valid = (query) ->
 $(document).ready ->
   if at_search_page()
     setup_input_field()
-    setup_button()
     setup_ajax()
     bind_back_button()
     copy_query_to_field()
@@ -24,15 +23,7 @@ $(document).ready ->
       execute_search(get_field_value())
 
 setup_input_field = ->
-  field = $('#query-field')
-  field.focus()
-  field.keypress (e) ->
-    if e.which == 13
-      run_search()
-
-setup_button = ->
-  $('#search-button').click ->
-    run_search()
+  $('#query-field').focus()
 
 setup_ajax = ->
   $('#progress-display').ajaxStop ->
@@ -62,9 +53,7 @@ push_url = (query) ->
   if typeof _gauges isnt 'undefined'
     _gauges.push(['track'])
 
-run_search = ->
-  query = get_field_value()
-
+window.run_search = (query) ->
   push_url(query)
   execute_search(query)
 
