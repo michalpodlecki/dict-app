@@ -1,3 +1,11 @@
 <% @services.each do |service| %>
 window.render_results("<%= escape_javascript( render(:partial => 'search/result', :locals => {:result => @results[service], :query => @query, :services => service})) %>");
 <% end %>
+
+$('.reverse-link').each(function() {
+  $(this).click(function(event) {
+    event.preventDefault();
+    run_search($(this).attr('alt'));
+  });
+  $(this).removeClass('reverse-link');
+});

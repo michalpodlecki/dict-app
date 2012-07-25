@@ -7,5 +7,5 @@
       #{word}:
       - translations.each_with_index do |t, index|
         - t.gsub(/[^\w\sąćęłńóśźż]+/,'').split(' ').each do |item|
-          = link_to item, "/run.js?q=#{item}", :remote => true
+          = link_to item, "?q=#{item}", {:class => 'reverse-link', :alt => item}
         = (index == translations.size - 1 ? '' : ', ')
