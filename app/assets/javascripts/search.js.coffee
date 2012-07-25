@@ -56,6 +56,7 @@ push_url = (query) ->
 window.run_search = (query) ->
   push_url(query)
   execute_search(query)
+  copy_query_to_field()
 
 make_fail_callback = (service) ->
   () ->
