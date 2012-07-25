@@ -16,10 +16,10 @@ To get a list of available dictionaries (JSON only):
     http://hostname/dictionaries/list
 
 ### JSON
-`curl -v -H "Accept: application/json" -H "Content-Type: application/json" -X POST http://dicteo.pl/?q=dziewica`
-`curl -v -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://dicteo.pl/dictionaries/glosbe?q=dziewica`
-`curl -v -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://dicteo.pl/dictionaries/wiktionary?q=dziewica`
-`curl -v -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://dicteo.pl/dictionaries`
+`curl -v -H "Accept: application/json" -X POST http://dicteo.pl/?q=dziewica`
+`curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries/glosbe?q=dziewica`
+`curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries/wiktionary?q=dziewica`
+`curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries`
 
 ## People
 
