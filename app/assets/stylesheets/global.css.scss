@@ -62,20 +62,21 @@ a {
 
   #header-inner {
     margin: auto;
-    max-width: 98%;
+    width: 98%;
+    max-width: 940px;
   }
 
   #home-link {
     position: relative;
     top: 12px;
-    max-width: 160px;
-    width: 16%;
+    max-width: 170px;
+    width: 18%;
     display: inline-block;
   }
 
   #search-area {
-    position: relative;
-    top: 18px;
+    position: absolute;
+    top: 25px;
     height: 40px;
     width: 80.6%;
     max-width: 758px;
