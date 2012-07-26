@@ -62,12 +62,14 @@ a {
 
   #header-inner {
     margin: auto;
-    width: 940px;
+    max-width: 98%;
   }
 
   #home-link {
     position: relative;
     top: 12px;
+    max-width: 160px;
+    width: 16%;
     display: inline-block;
   }
 
@@ -75,9 +77,9 @@ a {
     position: relative;
     top: 18px;
     height: 40px;
-    width: 758px;
+    width: 80.6%;
+    max-width: 758px;
     display: inline-block;
-    float: right;
 
     background: white;
     border: 1px solid #767676;
@@ -90,12 +92,12 @@ a {
       padding-left: 10px;
       position: relative;
       height: 40px;
-      width: 651px;
+      width: 85.8%;
     }
 
     #search-button {
-      position: relative;
-      right: 6px;
+      position: absolute;
+      right: 5px;
       top: 4px;
       float: right;
       width: 93px;
@@ -125,7 +127,8 @@ a {
 
 #content {
   margin: auto;
-  width: 960px;
+  max-width: 960px;
+  width: 98%;
   margin-bottom: 100px;
 }
 
@@ -140,7 +143,8 @@ a {
 
   #footer-inner {
     margin: auto;
-    width: 940px;
+    width: 98%;
+    max-width: 940px;
     vertical-align: middle;
 
     #footer-links {
@@ -201,4 +205,10 @@ a {
 
 .hidden {
   display: none;
+}
+
+@media only screen and (max-width: 1146px) {
+  #github-ribbon {
+    display: none;
+  }
 }

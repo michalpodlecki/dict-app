@@ -32,5 +32,5 @@
             .footer-logo
               = link_to image_tag("ragnarson-logo.jpg"),'http://ragnarson.com/'
       %a{:href => "https://github.com/Ragnarson/dict-app", :id => "github-ribbon"}
-        = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; left: 0; border: 0;", :alt => "Fork me on GitHub"})
+        = image_tag("github-ribbon.png", {:style => "position: absolute; top: 0; left: 0; border: 0;", :alt => "Fork me on GitHub", :id => "github-ribbon"})
     = javascript_include_tag "gauges" if Rails.env.production?
