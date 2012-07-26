@@ -13,7 +13,11 @@ class SearchController < ApplicationController
     @query = params[:q] || ""
 
     respond_to do |format|
-      format.html
+      format.html do
+        response.headers["Cache-Control"] = "no-cache"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "#{1.year.ago}"
+      end
       format.json  do
         begin
           @results = get_translations
