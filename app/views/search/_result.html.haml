@@ -5,7 +5,8 @@
   - result.each_pair do |word, translations|
     %p
       #{word}:
+      %span>= "&nbsp;".html_safe
       - translations.each_with_index do |t, index|
         - t.gsub(/[^\w\sąćęłńóśźż]+/,'').split(' ').each do |item|
-          = link_to item, "?q=#{item}", {:class => 'reverse-link', :alt => item}
-        = (index == translations.size - 1 ? '' : ', ')
+          %span>= link_to item, "?q=#{item}", {:class => 'reverse-link', :alt => item}
+        %span= (index == translations.size - 1 ? '' : ",&nbsp;".html_safe)
