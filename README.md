@@ -21,6 +21,15 @@ To get a list of available dictionaries (JSON only):
 `curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries/wiktionary?q=dziewica`
 `curl -v -H "Accept: application/json" -X GET http://dicteo.pl/dictionaries`
 
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Create test to your feature in RSpec
+4. Commit your changes (`git commit -am 'Added some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
+
 ## People
 
 ### Trainees
