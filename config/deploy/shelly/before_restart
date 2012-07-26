@@ -1,3 +1,2 @@
 rake assets:clean
-rake sass:update
 rake assets:precompile
